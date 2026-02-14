@@ -1,1 +1,27 @@
-<app-studencrud></app-studencrud>
+<div class="pdf-reader-page">
+  <header>
+    <h1>{{ title }}</h1>
+    <p>Upload and view PDF files directly in your browser.</p>
+  </header>
+
+  <section class="upload-panel">
+    <label for="pdfUpload">Choose PDF</label>
+    <input
+      id="pdfUpload"
+      type="file"
+      accept="application/pdf"
+      (change)="onFileSelected($event)"
+    />
+  </section>
+
+  <p *ngIf="selectedFileName" class="file-name">Now viewing: {{ selectedFileName }}</p>
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+  <section *ngIf="pdfUrl" class="viewer-container">
+    <iframe [src]="pdfUrl" title="PDF Viewer"></iframe>
+  </section>
+
+  <section *ngIf="!pdfUrl && !errorMessage" class="empty-state">
+    <p>Select a PDF file to preview it here.</p>
+  </section>
+</div>
