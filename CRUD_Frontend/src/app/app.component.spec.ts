@@ -12,16 +12,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'CRUD_Frontend'`, () => {
+  it(`should have as title 'PDF Reader'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('CRUD_Frontend');
+    expect(app.title).toEqual('PDF Reader');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('CRUD_Frontend app is running!');
+    expect(compiled.querySelector('h1')?.textContent).toContain('PDF Reader');
   });
 });
